@@ -74,13 +74,11 @@ app.post('/api/v1/states', (req, res) => {
 
   let statesToCheck 
   database('states').select().then(data => statesToCheck = data).then(() => {
-      
-    const stateNameFromDB = statesToCheck.find(state => {
+    const foundState = statesToCheck.find(state => {
       return state.name === req.body.name
-      // this returns the entire database's worth of names  
     })
    
-    if (!stateNameFromDB) {
+    if (!foundState) {
       database('states').insert(state, 'id')
         .then(id => {
           res.status(201).json({ id: id[0] })
@@ -89,10 +87,48 @@ app.post('/api/v1/states', (req, res) => {
           res.status(500).json({ error })
         })
     } else {
-      res.status(422).json({ error: 'Oops'})
+      res.status(422).json({ error: 'That state already exists' })
     }
   })
+})
 
+app.post('/api/v1/states/:id/courses', (req, res) => {
+  const course = req.body
+  for (let requiredParameters of ['name', 'city', 'state_id', 'holes', 'multiplePins', 'par']) {
+    if (!course[requiredParameters]) {
+      res
+        .status(422)
+        .send({ error: `Expected format: 
+        { 
+          name: <String>, 
+          city: <String>,
+          state_id: <Integer>,
+          holes: <Integer>,
+          multiplePins: <Boolean>,
+          par: <Integer>,
+        }. You're missing a "${requiredParameters}" property.`
+      })
+    }
+  }
+
+  let coursesToCheck;
+  database('courses').select().then(data => coursesToCheck = data).then(() => {
+    const foundCourse = coursesToCheck.find(course => {
+      return course.name === req.body.name
+    })    
+    
+    if (!foundCourse) {
+      database('courses').insert(course, 'id')
+      .then(id => {
+          res.status(201).json({ id: id[0] })
+        })
+        .catch(error => {
+          res.status(500).json({ error })
+        })
+    } else {
+      res.status(422).json({ error: `That course already exists.` })
+    }
+  })
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
