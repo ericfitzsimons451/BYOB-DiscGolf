@@ -5,14 +5,14 @@ const createState = (knex, state) => {
     name: state.name,
     capitalCity: state.capitalCity
   }, 'id')
-  .then(stateId => {
+  .then(stateIds => {
     let coursePromises = [];
     
     state.courses.forEach(course => {
       coursePromises.push(
         createCourse(knex, {
           name: course.name,
-          state_id: stateId[0],
+          state_id: stateIds[0],
           city: course.city,
           holes: course.holes,
           multiplePins: course.multiplePins,
