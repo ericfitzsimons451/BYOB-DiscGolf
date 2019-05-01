@@ -3,6 +3,7 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 const app = express()
+app.use(express.json())
 const port = 3000
 
 app.get('/api/v1/states', (req, res) => {
@@ -61,5 +62,37 @@ app.get('/api/v1/states/:id/courses/:id', (req, res) => {
     })
 })
 
+app.post('/api/v1/states', (req, res) => {
+  const state = req.body
+  for (let requiredParameter of ['name', 'capitalCity']) {
+    if (!state[requiredParameter]) {
+      return res
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, capitalCity: <String>}. You're missing a "${requiredParameters}" property.`})
+    }
+  }
+
+  let statesToCheck 
+  database('states').select().then(data => statesToCheck = data).then(() => {
+      
+    const stateNameFromDB = statesToCheck.find(state => {
+      return state.name === req.body.name
+      // this returns the entire database's worth of names  
+    })
+   
+    if (!stateNameFromDB) {
+      database('states').insert(state, 'id')
+        .then(id => {
+          res.status(201).json({ id: id[0] })
+        })
+        .catch(error => {
+          res.status(500).json({ error })
+        })
+    } else {
+      res.status(422).json({ error: 'Oops'})
+    }
+  })
+
+})
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
