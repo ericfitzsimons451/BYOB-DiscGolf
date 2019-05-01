@@ -11,7 +11,7 @@
 ```npm start```
 
 ## About/Background
-### This was our first solo project as a Mod 4 student at Turing School of Software and Design.  Our one-week task was to make a Postgres database and create endpoints on an Express server.  As front-end students, this was a chance to really dive into server-side Javascript in an effort to expand our knowledge of the interactions between different parts of the tech stack.  It was exciting to build a RESTful API from the ground up; complete with documentation and annotations.
+### This was our first solo project as a Mod 4 student at Turing School of Software and Design.  Our one-week task was to make a Postgres database and create endpoints on an Express server.  As front-end students, this was a chance to really dive into server-side Javascript in an effort to expand our understanding of the interactions between the different parts of a tech stack.  It was exciting to build a RESTful API from the ground up; complete with documentation and annotations.
 
 ## Tech Stack
 - NodeJS
