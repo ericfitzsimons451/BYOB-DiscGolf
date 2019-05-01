@@ -16,7 +16,6 @@ app.get('/api/v1/states', (req, res) => {
 app.get('/api/v1/states/:id', (req, res) => {
   database('states').where('id', req.params.id).select()
     .then((states) => {
-      console.log(states.id)
       if (states.length) {
         res.status(200).json(states)
       } else {
@@ -38,6 +37,22 @@ app.get('/api/v1/states/:id/courses', (req, res) => {
       } else {
         res.status(404).json({
           error: `Could not find courses with stateID:${req.params.id}`
+        })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ error })
+    })
+})
+
+app.get('/api/v1/states/:id/courses/:id', (req, res) => {
+  database('courses').where('id', req.params.id).select()
+    .then(courses => {
+      if (courses.length) {
+        res.status(200).json(courses)
+      } else {
+        res.status(404).json({
+          error: `Could not find a course with ID: ${req.params.id}`
         })
       }
     })
