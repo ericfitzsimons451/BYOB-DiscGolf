@@ -21,7 +21,7 @@
 ## API Documentation
 
 ### No API key is necessary to use our API and no areas of the API are restricted.
-### Base URL: http://localhost:3000/
+### Base URL: http://localhost:3000
 
 ### Get All States
 #### Endpoint
