@@ -62,6 +62,54 @@
 ]
 ```
 
+### Get All Courses in a State
+#### Endpoint
+```GET /api/v1/states/:id/courses```
+
+#### Successful Response Example:
+```[
+    {
+        "id": 33,
+        "name": "Adair Park",
+        "city": "Corvallis",
+        "holes": 8,
+        "multiplePins": true,
+        "majorTournament": "Festivus Open",
+        "par": 57,
+        "rating": "A",
+        "state_id": 13,
+        "created_at": "2019-05-01T00:24:25.253Z",
+        "updated_at": "2019-05-01T00:24:25.253Z"
+    },
+    {
+        "id": 34,
+        "name": "Milo McIver",
+        "city": "Estacada",
+        "holes": 27,
+        "multiplePins": true,
+        "majorTournament": "Beaver State Fling",
+        "par": 81,
+        "rating": "A",
+        "state_id": 13,
+        "created_at": "2019-05-01T00:24:25.255Z",
+        "updated_at": "2019-05-01T00:24:25.255Z"
+    },
+    {
+        "id": 35,
+        "name": "Pier Park",
+        "city": "Portland",
+        "holes": 18,
+        "multiplePins": true,
+        "majorTournament": "Rose City Open",
+        "par": 54,
+        "rating": "A",
+        "state_id": 13,
+        "created_at": "2019-05-01T00:24:25.255Z",
+        "updated_at": "2019-05-01T00:24:25.255Z"
+    }
+]
+```
+
 ## Future Iterations
 - Add more states
 - Add more courses
