@@ -28,7 +28,8 @@
 ```GET /api/v1/states```
 
 #### Successful Response Example:
-```[
+```
+[
     {
         "id": 1,
         "name": "Texas",
@@ -51,7 +52,8 @@
 ```GET /api/v1/states/:id```
 
 #### Successful Response Example:
-```[
+```
+[
     {
         "id": 12,
         "name": "California",
@@ -67,7 +69,8 @@
 ```GET /api/v1/states/:id/courses```
 
 #### Successful Response Example:
-```[
+```
+[
     {
         "id": 33,
         "name": "Adair Park",
@@ -102,6 +105,29 @@
         "multiplePins": true,
         "majorTournament": "Rose City Open",
         "par": 54,
+        "rating": "A",
+        "state_id": 13,
+        "created_at": "2019-05-01T00:24:25.255Z",
+        "updated_at": "2019-05-01T00:24:25.255Z"
+    }
+]
+```
+
+### Get a Courses in a State by ID
+#### Endpoint
+```GET /api/v1/states/:id/courses/:id```
+
+#### Successful Response Example:
+```
+[
+    {
+        "id": 34,
+        "name": "Milo McIver",
+        "city": "Estacada",
+        "holes": 27,
+        "multiplePins": true,
+        "majorTournament": "Beaver State Fling",
+        "par": 81,
         "rating": "A",
         "state_id": 13,
         "created_at": "2019-05-01T00:24:25.255Z",
