@@ -63,8 +63,8 @@
 ```
 
 ## Future Iterations
-- Add more states to the DB
-- Add more courses to the DB
+- Add more states
+- Add more courses
 - Expand the fields in courses to include:
   - Course length
   - Hole descriptions
