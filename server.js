@@ -30,5 +30,21 @@ app.get('/api/v1/states/:id', (req, res) => {
     })
 })
 
+app.get('/api/v1/states/:id/courses', (req, res) => {
+  database('courses').where('state_id', req.params.id).select()
+    .then(courses => {
+      if (courses.length) {
+        res.status(200).json(courses)
+      } else {
+        res.status(404).json({
+          error: `Could not find courses with stateID:${req.params.id}`
+        })
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ error })
+    })
+})
+
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
