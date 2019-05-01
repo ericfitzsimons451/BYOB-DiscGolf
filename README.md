@@ -1,5 +1,5 @@
 # BYOB-DiscGolf
-### API that serves up disc golf course data by state.
+### An API that serves up disc golf course data by state.
 
 ## Installation Steps
 ```git clone https://github.com/ericfitzsimons451/BYOB-DiscGolf```
