@@ -20,7 +20,7 @@
 
 ## API Documentation
 
-### No API key is necessary to use the API and no areas of the API are restricted.
+### No API key is necessary to use our API and no areas of the API are restricted.
 ### Base URL: http://localhost:3000/
 
 ### Get All States
@@ -113,7 +113,7 @@
 ]
 ```
 
-### Get a Courses in a State by ID
+### Get a Course in a State by ID
 #### Endpoint
 ```GET /api/v1/states/:id/courses/:id```
 
