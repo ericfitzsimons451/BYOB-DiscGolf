@@ -13,7 +13,6 @@ exports.up = (knex, Promise) => {
       table.increments('id').primary();
       table.string('name');
       table.string('city')
-      table.string('state')
       table.integer('holes')
       table.boolean('multiplePins')
       table.string('majorTournament')
