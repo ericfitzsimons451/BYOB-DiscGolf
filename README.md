@@ -138,6 +138,61 @@
 ]
 ```
 
+### Post a new State
+#### Endpoint
+``` POST /api/v1/states```
+
+#### Required Parameters
+``` 
+{
+    name: <String>,
+    capitalCity: <String>
+}
+```
+
+#### Successful Response Example:
+- Status 201
+``` 
+{
+    "id": 25
+}
+```
+
+### Post a new Course
+#### Endpoint
+``` POST /api/v1/states/:id/courses ```
+#### Required Parameters
+```
+{
+    "name": <String>,
+    "city": <String>,
+    "state_id": <Integer>,
+    "holes": <Integer>,
+    "multiplePins": <Boolean>,
+    "par": <Integer>,
+}
+```
+
+#### Successful Response Example:
+- Status 201
+```
+{
+    "id": 13
+}
+```
+
+### Delete a Course
+#### Endpoint
+``` DELETE /api/v1/courses/:id```
+#### Reqired Parameters
+```
+{
+    "id": <Integer>
+}
+```
+#### Successful Response Example:
+- Status 204
+
 ## Future Iterations
 - Add more states
 - Add more courses
@@ -148,7 +203,6 @@
   - Course scoring record
   - Nearby courses/attractions
   - Dates for upcoming tournaments
-
 
 ## Contributors
 [Eric Fitzsimons](https://github.com/ericfitzsimons451)
