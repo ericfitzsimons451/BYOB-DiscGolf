@@ -25,7 +25,7 @@
 
 - - - -
 
-### Get All States
+### GET All States
 #### Endpoint
 ```GET /api/v1/states```
 
@@ -49,7 +49,7 @@
 ]
 ```
 
-### Get State By ID
+### GET State By ID
 #### Endpoint
 ```GET /api/v1/states/:id```
 
@@ -66,7 +66,7 @@
 ]
 ```
 
-### Get All Courses in a State
+### GET All Courses in a State
 #### Endpoint
 ```GET /api/v1/states/:id/courses```
 
@@ -115,7 +115,7 @@
 ]
 ```
 
-### Get a Course in a State by ID
+### GET a Course in a State by ID
 #### Endpoint
 ```GET /api/v1/states/:id/courses/:id```
 
@@ -138,7 +138,7 @@
 ]
 ```
 
-### Post a new State
+### POST a new State
 #### Endpoint
 ``` POST /api/v1/states```
 
@@ -158,7 +158,7 @@
 }
 ```
 
-### Post a new Course
+### POST a new Course
 #### Endpoint
 ``` POST /api/v1/states/:id/courses ```
 #### Required Parameters
@@ -181,7 +181,7 @@
 }
 ```
 
-### Delete a Course
+### DELETE a Course
 #### Endpoint
 ``` DELETE /api/v1/courses/:id```
 #### Reqired Parameters
