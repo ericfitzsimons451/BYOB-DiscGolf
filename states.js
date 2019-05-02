@@ -6,7 +6,6 @@ const states = [
       {
         "name": "DeLaveaga",
         "city": "Santa Cruz",
-        "state": "California",
         "holes": "29",
         "multiplePins": "true",
         "majorTournament": "Masters Cup",
@@ -16,7 +15,6 @@ const states = [
       {
         "name": "Aquatic Park",
         "city": "Berkeley",
-        "state": "California",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Berzerkeley Best Pairs",
@@ -26,7 +24,6 @@ const states = [
       {
         "name": "Black Mouse",
         "city": "Felton",
-        "state": "California",
         "holes": "18",
         "multiplePins": "false",
         "majorTournament": "Felton Freeze",
@@ -42,7 +39,6 @@ const states = [
       {
         "name": "Adair Park",
         "city": "Corvallis",
-        "state": "Oregon",
         "holes": "8",
         "multiplePins": "true",
         "majorTournament": "Festivus Open",
@@ -52,7 +48,6 @@ const states = [
       {
         "name": "Milo McIver",
         "city": "Estacada",
-        "state": "Oregon",
         "holes": "27",
         "multiplePins": "true",
         "majorTournament": "Beaver State Fling",
@@ -62,7 +57,6 @@ const states = [
       {
         "name": "Pier Park",
         "city": "Portland",
-        "state": "Oregon",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Rose City Open",
@@ -78,7 +72,6 @@ const states = [
       {
         "name": "Fountain Hills Park",
         "city": "Fountain Hills",
-        "state": "Arizona",
         "holes": "18",
         "multiplePins": "false",
         "majorTournament": "The Memorial",
@@ -88,7 +81,6 @@ const states = [
       {
         "name": "Visa Del Camino Park",
         "city": "Scottsdale",
-        "state": "Arizona",
         "holes": "18",
         "multiplePins": "false",
         "majorTournament": "The Memorial",
@@ -98,7 +90,6 @@ const states = [
       {
         "name": "Oasis",
         "city": "Florence",
-        "state": "Arizona",
         "holes": "9",
         "multiplePins": "false",
         "majorTournament": null,
@@ -114,7 +105,6 @@ const states = [
       {
         "name": "Beaver Island State Park",
         "city": "Grand Island",
-        "state": "New York",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Western New York Amateur Championships",
@@ -124,7 +114,6 @@ const states = [
       {
         "name": "Chautauqua County Fair Grounds",
         "city": "Dunkirk",
-        "state": "New York",
         "holes": "2",
         "multiplePins": "false",
         "majorTournament": null,
@@ -134,7 +123,6 @@ const states = [
       {
         "name": "Green Lakes State Park",
         "city": "Fayetteville",
-        "state": "New York",
         "holes": "9",
         "multiplePins": "false",
         "majorTournament": null,
@@ -150,7 +138,6 @@ const states = [
       {
         "name": "Renaissance Gold",
         "city": "Charlotte",
-        "state": "North Carolina",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Carolina Clash",
@@ -160,7 +147,6 @@ const states = [
       {
         "name": "Hornet's Nest",
         "city": "Charlotte",
-        "state": "North Carolina",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Carolina Clash",
@@ -170,7 +156,6 @@ const states = [
       {
         "name": "Nevin",
         "city": "Charlotte",
-        "state": "North Carolina",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Carolina Clash",
@@ -186,7 +171,6 @@ const states = [
       {
         "name": "Brazos East",
         "city": "Waco",
-        "state": "Texas",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Texas State Championships",
@@ -196,7 +180,6 @@ const states = [
       {
         "name": "William Cameron Park",
         "city": "Waco",
-        "state": "Texas",
         "holes": "23",
         "multiplePins": "false",
         "majorTournament": null,
@@ -212,7 +195,6 @@ const states = [
       {
         "name": "Winthrop Gold",
         "city": "Rock Hill",
-        "state": "South Carolina",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "United States Disc Golf Championship",
@@ -228,7 +210,6 @@ const states = [
       {
         "name": "Seatac DGC",
         "city": "Seatac",
-        "state": "Washington",
         "holes": "27",
         "multiplePins": "true",
         "majorTournament": "The Seatac Attack",
@@ -238,7 +219,6 @@ const states = [
       {
         "name": "Abrams Park",
         "city": "Ridgefield",
-        "state": "Washington",
         "holes": "9",
         "multiplePins": "true",
         "majorTournament": null,
@@ -254,7 +234,6 @@ const states = [
       {
         "name": "Amelia Earhart park",
         "city": "Hialeah",
-        "state": "Florida",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": null,
@@ -264,7 +243,6 @@ const states = [
       {
         "name": "Bay Dunes DGC",
         "city": "Panama City",
-        "state": "Florida",
         "holes": "18",
         "multiplePins": "false",
         "majorTournament": null,
@@ -274,7 +252,6 @@ const states = [
       {
         "name": "Bill Fredrick Park - The Turkeynator",
         "city": "Orlando",
-        "state": "Florida",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "The Turkey Shoot",
@@ -290,7 +267,6 @@ const states = [
       {
         "name": "Adams Hallow",
         "city": "Arvada",
-        "state": "Colorado",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "The 303 Open",
@@ -300,7 +276,6 @@ const states = [
       {
         "name": "Village Greens",
         "city": "Greenwood Village",
-        "state": "Colorado",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "The Green Monster",
@@ -310,7 +285,6 @@ const states = [
       {
         "name": "Badlands",
         "city": "Federal Heights",
-        "state": "Colorado",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "The 303 Open",
@@ -326,7 +300,6 @@ const states = [
       {
         "name": "Lemon Lake - Blue",
         "city": "Crown Point",
-        "state": "Indiana",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Lemon Lake Championship",
@@ -336,7 +309,6 @@ const states = [
       {
         "name": "Lemon Lake - Silver",
         "city": "Crown Point",
-        "state": "Indiana",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Lemon Lake Championship",
@@ -346,7 +318,6 @@ const states = [
       {
         "name": "Lemon Lake - Gold",
         "city": "Crown Point",
-        "state": "Indiana",
         "holes": "18",
         "multiplePins": "true",
         "majorTournament": "Lemon Lake Championship",

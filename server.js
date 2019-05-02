@@ -68,16 +68,16 @@ app.post('/api/v1/states', (req, res) => {
     if (!state[requiredParameter]) {
       return res
         .status(422)
-        .send({ error: `Expected format: { name: <String>, capitalCity: <String>}. You're missing a "${requiredParameters}" property.`})
+        .send({ error: `Expected format: { name: <String>, capitalCity: <String>}. You're missing a "${requiredParameters}" property.` })
     }
   }
 
-  let statesToCheck 
+  let statesToCheck
   database('states').select().then(data => statesToCheck = data).then(() => {
     const foundState = statesToCheck.find(state => {
       return state.name === req.body.name
     })
-   
+
     if (!foundState) {
       database('states').insert(state, 'id')
         .then(id => {
@@ -98,16 +98,16 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
     if (!course[requiredParameters]) {
       res
         .status(422)
-        .send({ error: `Expected format: 
+        .send({
+          error: `Expected format: 
         { 
           name: <String>, 
           city: <String>,
-          state_id: <Integer>,
           holes: <Integer>,
           multiplePins: <Boolean>,
           par: <Integer>,
         }. You're missing a "${requiredParameters}" property.`
-      })
+        })
     }
   }
 
@@ -115,11 +115,11 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
   database('courses').select().then(data => coursesToCheck = data).then(() => {
     const foundCourse = coursesToCheck.find(course => {
       return course.name === req.body.name
-    })    
-    
+    })
+
     if (!foundCourse) {
       database('courses').insert(course, 'id')
-      .then(id => {
+        .then(id => {
           res.status(201).json({ id: id[0] })
         })
         .catch(error => {
@@ -129,6 +129,27 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
       res.status(422).json({ error: `That course already exists.` })
     }
   })
+})
+
+app.delete('/api/v1/courses/:id', (req, res) => {
+  const idForDelete = req.params.id
+    if (!idForDelete) {
+      res.status(422).json({
+        error: `Missing id from request parameters.`
+      })
+    } else {
+      database('courses')
+        .where('id', idForDelete)
+        .del()
+        .then(() => {
+          res.status(204)
+            .json(`Successfully deleted course with id: ${idForDelete}`)
+            
+        })
+        .catch(error => {
+          res.status(500).json({ error })
+        })
+    }
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
