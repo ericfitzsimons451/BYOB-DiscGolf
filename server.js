@@ -255,6 +255,6 @@ app.delete('/api/v1/courses/:id', (req, res) => {
   }
 })
 
-app.listen(port, () => console.log(`App is listening on port ${port}`))
+app.listen(process.env.PORT || port, () => console.log(`App is listening on port ${port}`))
 // tell the server to listen on the designated port
 // and set a log to denote that it is actively listening on said port
