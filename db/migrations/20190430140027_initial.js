@@ -1,14 +1,15 @@
 
-exports.up = function(knex, Promise) {
+exports.up = (knex, Promise) => {
   return Promise.all([
-    knex.schema.createTable('states', function(table) {
+    knex.schema.createTable('states', (table) => {
       table.increments('id').primary();
       table.string('name');
       table.string('capitalCity')
       table.timestamps(true, true)
     }),
 
-    knex.schema.createTable('courses', function(table) {
+
+    knex.schema.createTable('courses', (table) => {
       table.increments('id').primary();
       table.string('name');
       table.string('city')
@@ -18,14 +19,17 @@ exports.up = function(knex, Promise) {
       table.string('majorTournament')
       table.integer('par')
       table.string('rating')
+      table.integer('state_id').unsigned()
+      table.foreign('state_id')
+        .references('states.id')
       table.timestamps(true, true)
     })
   ])
 };
 
-exports.down = function(knex, Promise) {
+exports.down = (knex, Promise) => {
   return Promise.all([
-    knex.schema.dropTable('states'),
-    knex.schema.dropTable('courses')
+    knex.schema.dropTable('courses'),
+    knex.schema.dropTable('states')
   ])
 };

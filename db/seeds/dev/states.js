@@ -14,7 +14,10 @@ const createState = (knex, state) => {
           name: course.name,
           state_id: stateIds[0],
           city: course.city,
+<<<<<<< HEAD
           state: course.state,
+=======
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
           holes: course.holes,
           multiplePins: course.multiplePins,
           majorTournament: course.majorTournament,

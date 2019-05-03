@@ -48,13 +48,18 @@ app.get('/api/v1/states/:id', (req, res) => {
       }
     })
     .catch(error => {
+<<<<<<< HEAD
       // if there is an error resolving the promise
       res.status(500).json({ error })
       // send a 500 response and an error as json
+=======
+      res.status(500).json({ error })
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
     })
 })
 
 app.get('/api/v1/states/:id/courses', (req, res) => {
+<<<<<<< HEAD
   // when a request is made to the url
   database('courses').where('state_id', req.params.id).select()
     // query the database and select the courses table where the stateID (foreign key), matches the request params
@@ -70,17 +75,31 @@ app.get('/api/v1/states/:id/courses', (req, res) => {
           // send a 404 (not found) status
           error: `Could not find courses with stateID:${req.params.id}`
           // and set the error message to include the request params
+=======
+  database('courses').where('state_id', req.params.id).select()
+    .then(courses => {
+      if (courses.length) {
+        res.status(200).json(courses)
+      } else {
+        res.status(404).json({
+          error: `Could not find courses with stateID:${req.params.id}`
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
         })
       }
     })
     .catch(error => {
+<<<<<<< HEAD
       // if the promise is rejected
       res.status(500).json({ error })
       // send a 500 status and an error as json
+=======
+      res.status(500).json({ error })
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
     })
 })
 
 app.get('/api/v1/states/:id/courses/:id', (req, res) => {
+<<<<<<< HEAD
   // when a request is made to the url
   database('courses').where('id', req.params.id).select()
     // query the database and select the courses table where the id matches the request params
@@ -96,17 +115,31 @@ app.get('/api/v1/states/:id/courses/:id', (req, res) => {
           // send a 404 status
           error: `Could not find a course with ID: ${req.params.id}`
           // and an error message as json noting the unfound id
+=======
+  database('courses').where('id', req.params.id).select()
+    .then(courses => {
+      if (courses.length) {
+        res.status(200).json(courses)
+      } else {
+        res.status(404).json({
+          error: `Could not find a course with ID: ${req.params.id}`
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
         })
       }
     })
     .catch(error => {
+<<<<<<< HEAD
       // if the promise rejects
       res.status(500).json({ error })
       // send a 500 status and an error as json
+=======
+      res.status(500).json({ error })
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
     })
 })
 
 app.post('/api/v1/states', (req, res) => {
+<<<<<<< HEAD
   // when a request is made to the url
   const state = req.body
   // declare the request body as the variable state
@@ -179,11 +212,52 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
         // send a response status of 422
         .send({
           // and send an error denoting the expected format and the missing parameter
+=======
+  const state = req.body
+  for (let requiredParameter of ['name', 'capitalCity']) {
+    if (!state[requiredParameter]) {
+      return res
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, capitalCity: <String>}. You're missing a "${requiredParameters}" property.` })
+    }
+  }
+
+  let statesToCheck
+  database('states').select().then(data => statesToCheck = data).then(() => {
+    const foundState = statesToCheck.find(state => {
+      return state.name === req.body.name
+    })
+
+    if (!foundState) {
+      database('states').insert(state, 'id')
+        .then(id => {
+          res.status(201).json({ id: id[0] })
+        })
+        .catch(error => {
+          res.status(500).json({ error })
+        })
+    } else {
+      res.status(422).json({ error: 'That state already exists' })
+    }
+  })
+})
+
+app.post('/api/v1/states/:id/courses', (req, res) => {
+  const course = req.body
+  for (let requiredParameters of ['name', 'city', 'state_id', 'holes', 'multiplePins', 'par']) {
+    if (!course[requiredParameters]) {
+      res
+        .status(422)
+        .send({
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
           error: `Expected format: 
         { 
           name: <String>, 
           city: <String>,
+<<<<<<< HEAD
           state_id: <Integer>,
+=======
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
           holes: <Integer>,
           multiplePins: <Boolean>,
           par: <Integer>,
@@ -193,6 +267,7 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
   }
 
   let coursesToCheck;
+<<<<<<< HEAD
   // declare a variable
   database('courses').select()
   // query the db for the courses table and select it
@@ -211,6 +286,15 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
       // if there is no found course
       database('courses').insert(course, 'id')
       // query the database, find the table named courses, insert the co
+=======
+  database('courses').select().then(data => coursesToCheck = data).then(() => {
+    const foundCourse = coursesToCheck.find(course => {
+      return course.name === req.body.name
+    })
+
+    if (!foundCourse) {
+      database('courses').insert(course, 'id')
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
         .then(id => {
           res.status(201).json({ id: id[0] })
         })
@@ -224,6 +308,7 @@ app.post('/api/v1/states/:id/courses', (req, res) => {
 })
 
 app.delete('/api/v1/courses/:id', (req, res) => {
+<<<<<<< HEAD
   // when a request is made to the url
   const idForDelete = req.params.id
   // declare a variable for the id in the request params
@@ -260,3 +345,26 @@ app.delete('/api/v1/courses/:id', (req, res) => {
 app.listen(port, () => console.log(`App is listening on port ${port}`))
 // tell the server to listen on the designated port
 // and set a log to denote that it is actively listening on said port
+=======
+  const idForDelete = req.params.id
+    if (!idForDelete) {
+      res.status(422).json({
+        error: `Missing id from request parameters.`
+      })
+    } else {
+      database('courses')
+        .where('id', idForDelete)
+        .del()
+        .then(() => {
+          res.status(204)
+            .json(`Successfully deleted course with id: ${idForDelete}`)
+            
+        })
+        .catch(error => {
+          res.status(500).json({ error })
+        })
+    }
+})
+
+app.listen(port, () => console.log(`App is listening on port ${port}`))
+>>>>>>> 5eb685539ccf59863db71aabf47fa399efb4e2e2
