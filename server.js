@@ -1,7 +1,7 @@
 const express = require('express')
 // brings in the express library
 const environment = process.env.NODE_ENV || 'development';
-// defines the development environment
+// defines the 2 environments, production OR development 
 const configuration = require('./knexfile')[environment];
 // requires the knexfile.js as the environment, which will declare which
 // postgres database files to look in
