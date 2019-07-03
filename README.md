@@ -198,6 +198,7 @@
 - Status 204
 
 ## Future Iterations
+- Build a front-end
 - Add more states
 - Add more courses
 - Expand the fields in courses to include:
