@@ -18,14 +18,18 @@
 - Express
 - KnexJS
 
+## Deployed Site
+```https://discgolfcourses.herokuapp.com/```
+
 ## API Documentation
 
 ### No API key is necessary to use our API and no areas of the API are restricted.
 ### Base URL: http://localhost:3000
+### Base URL on Heroku: https://discgolfcourses.herokuapp.com
 
 - - - -
 
-### Get All States
+### GET All States
 #### Endpoint
 ```GET /api/v1/states```
 
@@ -49,7 +53,7 @@
 ]
 ```
 
-### Get State By ID
+### GET State By ID
 #### Endpoint
 ```GET /api/v1/states/:id```
 
@@ -66,7 +70,7 @@
 ]
 ```
 
-### Get All Courses in a State
+### GET All Courses in a State
 #### Endpoint
 ```GET /api/v1/states/:id/courses```
 
@@ -115,7 +119,7 @@
 ]
 ```
 
-### Get a Course in a State by ID
+### GET a Course in a State by ID
 #### Endpoint
 ```GET /api/v1/states/:id/courses/:id```
 
@@ -138,7 +142,63 @@
 ]
 ```
 
+### POST a new State
+#### Endpoint
+``` POST /api/v1/states```
+
+#### Required Parameters
+``` 
+{
+    name: <String>,
+    capitalCity: <String>
+}
+```
+
+#### Successful Response Example:
+- Status 201
+``` 
+{
+    "id": 25
+}
+```
+
+### POST a new Course
+#### Endpoint
+``` POST /api/v1/states/:id/courses ```
+#### Required Parameters
+```
+{
+    "name": <String>,
+    "city": <String>,
+    "state_id": <Integer>,
+    "holes": <Integer>,
+    "multiplePins": <Boolean>,
+    "par": <Integer>,
+}
+```
+
+#### Successful Response Example:
+- Status 201
+```
+{
+    "id": 13
+}
+```
+
+### DELETE a Course
+#### Endpoint
+``` DELETE /api/v1/courses/:id```
+#### Reqired Parameters
+```
+{
+    "id": <Integer>
+}
+```
+#### Successful Response Example:
+- Status 204
+
 ## Future Iterations
+- Build a front-end
 - Add more states
 - Add more courses
 - Expand the fields in courses to include:
@@ -148,7 +208,6 @@
   - Course scoring record
   - Nearby courses/attractions
   - Dates for upcoming tournaments
-
 
 ## Contributors
 [Eric Fitzsimons](https://github.com/ericfitzsimons451)

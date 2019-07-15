@@ -1,7 +1,9 @@
 const express = require('express')
 // brings in the express library
 const environment = process.env.NODE_ENV || 'development';
-// defines the development environment
+
+// defines the 2 environments, production OR development 
+
 const configuration = require('./knexfile')[environment];
 // requires the knexfile.js as the environment, which will declare which
 // postgres database files to look in
@@ -257,6 +259,7 @@ app.delete('/api/v1/courses/:id', (req, res) => {
   }
 })
 
-app.listen(port, () => console.log(`App is listening on port ${port}`))
+
+app.listen(process.env.PORT || port, () => console.log(`App is listening on port ${port}`))
 // tell the server to listen on the designated port
 // and set a log to denote that it is actively listening on said port
